@@ -16,14 +16,15 @@ jobs:
       
       - name: Build Docker image
         run: docker build -t my-quiz-app .
-      
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       
+      - name: Tag Docker image
+        run: docker tag my-quiz-app ${{ secrets.DOCKERHUB_USERNAME }}/my-quizz-ci-cd:latest
+      
       - name: Push Docker image
-        run: |
-          docker tag my-quiz-app ${{ secrets.DOCKERHUB_USERNAME }}/my-quizz-ci-cd:latest
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/my-quiz-ci-cd:latest
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/my-quizz-ci-cd:latest
