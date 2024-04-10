@@ -10,7 +10,6 @@ terraform {
     bucket         = "ts-github-actions-terraform-bucket"
     key            = "terraform.tfstate"
     region         = "us-east-1"
-    profile        = "vscode"
     encrypt        = true
     dynamodb_table = "terraform_lock"
   }
