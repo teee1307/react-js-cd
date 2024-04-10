@@ -74,7 +74,7 @@ resource "aws_security_group" "ts_sg" {
 
 resource "aws_key_pair" "ts_auth" {
   key_name   = "tskey"
-  public_key = var.PUBLIC_KEY
+  public_key = var.public_key
 
 }
 
