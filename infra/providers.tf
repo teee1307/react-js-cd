@@ -5,9 +5,17 @@ terraform {
       version = "~> 5.0"
     }
   }
+  
+  backend "s3" {
+    bucket         = "ts-github-actions-terraform-bucket"
+    key            = "terraform.tfstate"
+    region         = "us-east-1"
+    profile        = "vscode"
+    encrypt        = true
+    dynamodb_table = "terraform_lock"
+  }
 }
+
 provider "aws" {
   region                   = "us-east-1"
-  shared_credentials_files = ["~/.aws/credentials"]
-  profile                  = "vscode"
 }

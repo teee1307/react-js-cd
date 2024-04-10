@@ -74,7 +74,7 @@ resource "aws_security_group" "ts_sg" {
 
 resource "aws_key_pair" "ts_auth" {
   key_name   = "tskey"
-  public_key = file("~/.ssh/id_ed25519.pub")
+  public_key = var.PUBLIC_KEY
 
 }
 
@@ -87,12 +87,20 @@ resource "aws_instance" "dev_node" {
   tags = {
     Name = "dev-node"
   }
+  # provisioner "local-exec" {
+  #   command =templatefile("windows-ssh-config.tpl",{
+  #     hostname =self.public_ip
+  #     user ="ubuntu"
+  #     identityfile ="~/.ssh/id_ed25519"
+  #   })
+  #   interpreter = ["Powershell","-Command"]
+  # }
 
   key_name               = aws_key_pair.ts_auth.id
   vpc_security_group_ids = [aws_security_group.ts_sg.id]
   subnet_id              = aws_subnet.ts_pulic_subnet.id
   user_data       =   file("userdata.tpl")
-
+  
 
 }
 
