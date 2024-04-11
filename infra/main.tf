@@ -88,6 +88,7 @@ resource "aws_instance" "dev_node" {
   root_block_device {
     volume_size = 10
   }
+  associate_public_ip_address = true 
   tags = {
     Name = "dev-node"
   }
