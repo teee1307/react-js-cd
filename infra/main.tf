@@ -62,7 +62,7 @@ resource "aws_security_group" "ts_sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["115.246.24.52/32","106.216.101.89"]
+    cidr_blocks = ["115.246.24.52/32","106.216.101.89/32"]
 
   }
 
