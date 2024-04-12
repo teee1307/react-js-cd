@@ -33,4 +33,4 @@ jobs:
                     --application-name Quizz_App \
                     --deployment-group-name Sample_DepGroup \
                     --github-location repository="teee1307/react-js-cd",commitId="${{ github.sha }}"\
-                    --ec2-tag-filters Key=Name,Value=CodeDeployDemo,Type=KEY_AND_VALUE
+                    --target-instances Key=Name,Value=CodeDeployDemo
