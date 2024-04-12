@@ -33,4 +33,4 @@ jobs:
                     --application-name Quizz_App \
                     --deployment-group-name Sample_DepGroup \
                     --github-location repository="teee1307/react-js-cd",commitId="${{ github.sha }}"\
-                    --target-instances Key=Name,Value=CodeDeployDemo
+                    --target-instances "Name=CodeDeployDemo"
