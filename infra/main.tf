@@ -91,7 +91,7 @@ resource "aws_instance" "dev_node" {
   associate_public_ip_address = true 
   tags = {
     Name = "dev-node"
-    CodeDeployDemo = "true"
+    
   }
   # provisioner "local-exec" {
   #   command =templatefile("windows-ssh-config.tpl",{
