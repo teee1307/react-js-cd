@@ -107,9 +107,7 @@ resource "aws_instance" "dev_node" {
   subnet_id              = aws_subnet.ts_pulic_subnet.id
   user_data       =   file("userdata.tpl")
   
-    iam_instance_profile {
-    name                     = "ec2-deploy"  # IAM role name
-  }
+  iam_instance_profile = "ec2-deploy"  # IAM role name
 
 }
 
