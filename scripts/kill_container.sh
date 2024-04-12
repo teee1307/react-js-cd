@@ -2,4 +2,4 @@
 
 set -e
 
-docker rm -f quizz-app || true
+sudo docker rm -f quizz-app || true
