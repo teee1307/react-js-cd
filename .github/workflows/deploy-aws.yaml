@@ -29,7 +29,10 @@ jobs:
 
       - name: Trigger deployment
         run: |
-            aws deploy create-deployment \
-              --application-name Quizz_App \
-              --deployment-group-name Sample_DepGroup \
-              --file-exists-behavior DISALLOW
+                    aws deploy create-deployment \
+                    --application-name Quizz_App \
+                    --deployment-group-name Sample_DepGroup \
+                    --revision \
+                    revisionType=GitHub,repository=teee1307/react-js-cd,commitId=${{ github.sha }} \
+                    --file-exists-behavior DISALLOW
+                
