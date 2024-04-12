@@ -7,7 +7,7 @@ hooks:
       runas: ubuntu
   AfterInstall:
     - location: scripts/load_image.sh
-      timeout: 1000
+      timeout: 3000
       runas: ubuntu
   ApplicationStart:
     - location: scripts/start_container.sh
