@@ -32,6 +32,7 @@ jobs:
                     aws deploy create-deployment \
                     --application-name Quizz_App \
                     --deployment-group-name Sample_DepGroup \
-                    --revision '{"gitHubLocation":{"commitId":${{ github.sha }},"repository":"teee1307/react-js-cd"}}' \
+                    --revision "{\"gitHubLocation\":{\"commitId\":\"${{ github.sha }}\",\"repository\":\"teee1307/react-js-cd\"}}" \
+
                     --file-exists-behavior DISALLOW
                 
