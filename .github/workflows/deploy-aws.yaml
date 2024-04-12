@@ -34,5 +34,5 @@ jobs:
                     --deployment-group-name Sample_DepGroup \
                     --github-location repository="teee1307/react-js-cd",commitId="${{ github.sha }}"
                     
-                    --target-instances "tag:Name=CodeDeployDemo"
+                    --ec2-tag-filters Key=Name,Value=CodeDeployDemo,Type=KEY_AND_VALUE
                 
