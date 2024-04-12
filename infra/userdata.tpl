@@ -1,5 +1,5 @@
 #!/bin/bash 
-
+set -e  
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
 
 # Add Docker's official GPG key:
@@ -25,14 +25,24 @@ sudo apt-get -y docker-compose-plugin
 sudo docker run hello-world  
 
 #----------------------------------------------------------------------
-#installing codedeploy-agent  
+
+
+
+
+# Update package lists
 sudo apt-get update
-sudo apt-get install ruby
-sudo apt-get install wget
-cd /home/ubuntu
+
+# Install required packages
+sudo apt-get install -y ruby wget
+
+# Download and install CodeDeploy agent
 cd /home/ubuntu
 wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
 chmod +x ./install
 sudo ./install auto
-systemctl start codedeploy-agent
-systemctl status codedeploy-agent
+
+# Start CodeDeploy agent service
+sudo systemctl start codedeploy-agent
+
+# Check status of CodeDeploy agent service
+sudo systemctl status codedeploy-agent
