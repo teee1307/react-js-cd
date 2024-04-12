@@ -22,4 +22,17 @@ sudo apt-get -y containerd.io
 sudo apt-get -y docker-buildx-plugin 
 sudo apt-get -y docker-compose-plugin
 
-sudo docker run hello-world
+sudo docker run hello-world  
+
+#----------------------------------------------------------------------
+#installing codedeploy-agent  
+sudo apt-get update
+sudo apt-get install ruby
+sudo apt-get install wget
+cd /home/ubuntu
+cd /home/ubuntu
+wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+systemctl start codedeploy-agent
+systemctl status codedeploy-agent

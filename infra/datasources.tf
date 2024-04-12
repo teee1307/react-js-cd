@@ -9,3 +9,8 @@ data "aws_ami" "server_ami" {
 
   }
 }
+
+
+data "aws_iam_role" "existing_role" {
+  name = "awscodedeployroleforCD"
+}
